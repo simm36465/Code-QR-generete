@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    <style>
+        .content{
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            
+            width: 300px;
+            height: 400px
+        }
+        .content #qr{
+             position: absolute;
+            top: 10%;
+            left: 12%;
+        }
+        .content .xcode {
+            
+            position: absolute;
+            top: 74%;
+            left: 10%;
+        }
+        .content .xcode textarea {
+            position: absolute;
+            width: 228px;
+            resize: none;
+           
+        }
+        .content .xcode button{
+            position: absolute;
+            top: 100px;
+            left: 22%;
+            padding: 10px;
+            width: 100px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+         <div id="qr"></div>
+        <div class="xcode">
+        <textarea rows="5" id="code"></textarea><br>
+            <button onclick="make ()">Generte</button>
+        </div>
+        </div>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="qrcode"/>
+  </svg>
+        
+        
+        <script src="asset/qrcode.min.js"></script>
+   
+<script type="text/javascript">
+    
+    var code = document.getElementById("code");
+    var qrcode = new QRCode("qr", {
+    text: " " ,
+    width: 228,
+    height: 228,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+});
+    function make () {
+        qrcode.makeCode(code.value);
+    }
+      
+</script>
+    </body>
+    
+</html>
